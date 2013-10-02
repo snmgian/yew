@@ -1,6 +1,9 @@
+$YEW_DEBUG = true
 require 'yew'
 
-Envy = Yew.load('config/env.yml')
-Envy[]
-Envy.orientdb[]
-Envy.orientdb.url
+Env = Yew.load('config/env.yml')
+Env[]
+Env.orientdb[]
+Env.orientdb.url
+Env['orientdb']
+Env['orientdb'].url

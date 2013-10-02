@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name            = 'yew'
-  s.version         = '0.0.1'
+  s.version         = '0.0.3'
   s.platform        = Gem::Platform::RUBY
   s.authors         = ['Gianfranco Zas']
   s.email           = 'snmgian@gmail.com'
