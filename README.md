@@ -1,9 +1,93 @@
-$YEW_DEBUG = true
-require 'yew'
+# Yew
 
-Env = Yew.load('config/env.yml')
-Env[]
-Env.orientdb[]
-Env.orientdb.url
-Env['orientdb']
-Env['orientdb'].url
+Yew allows traversing a Hash structure as if it is an object tree.
+
+
+## Usage
+
+Given the following yml file located at `config/env.yml`:
+
+  ``` yaml
+  orientdb:
+    url: 'remote:localhost/db'
+    user: admin
+    pass: secret
+
+  testing:
+    frameworks:
+      rspec:  true
+      minitest: false
+  ```
+
+
+ - Load the YAML structure.
+
+    ``` ruby
+    Env = Yew.load('config/env.yml')
+    ```
+
+
+ - Traverse the structure contents.
+
+    ``` ruby
+    Env.orientdb.user
+    # => 'admin'
+    ```
+
+ - Obtain the underlying Hash.
+
+    ``` ruby
+    Env.testing.frameworks[]
+    # => {"rspec"=>true, "minitest"=>false}
+    ```
+
+
+ - A tree can also be traversed like a normal Hash.
+
+    ``` ruby
+    Env['orientdb']['user']
+    # => 'admin'
+
+    Env['orientdb'].user
+    # => 'admin'
+    ```
+
+
+ - It raises well formed errors when accessing inexistent paths.
+
+    ``` ruby
+    Env['orientdb'].timeout
+    # => RuntimeError: Attribute timeout not found at /orientdb
+    ```
+
+
+ - Set `$YEW_DEBUG` when need to inspect `Yew::Tree` objects under irb.
+
+
+    ``` ruby
+    irb> $YEW_DEBUG = true
+    irb> require 'yew'
+    ```
+
+## Installation
+
+There are two options for installation: packaged gem and source file.
+
+ 1. Install Yew as a gem.
+
+    ``` shell
+    gem install yew
+    ```
+
+
+ 2. Download raw lib into a project source tree.
+
+    ``` shell
+    curl "https://raw.github.com/snmgian/yew/master/lib/yew.rb" 2>/dev/null -o "yew.rb"
+    ```
+
+## License
+
+This software is licensed under the [LGPL][lgpl] license.
+
+[lgpl]: https://www.gnu.org/licenses/lgpl.html
