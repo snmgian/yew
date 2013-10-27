@@ -15,8 +15,8 @@ Given the following yml file located at `config/env.yml`:
 
   testing:
     frameworks:
-      rspec:  true
-      minitest: false
+      minitest: true
+      rspec: false
   ```
 
 
@@ -38,7 +38,7 @@ Given the following yml file located at `config/env.yml`:
 
     ``` ruby
     Env.testing.frameworks[]
-    # => {"rspec"=>true, "minitest"=>false}
+    # => {"rspec"=>false, "minitest"=>true}
     ```
 
 
@@ -85,6 +85,14 @@ There are two options for installation: packaged gem and source file.
     ``` shell
     curl "https://raw.github.com/snmgian/yew/master/lib/yew.rb" 2>/dev/null -o "yew.rb"
     ```
+
+## Running tests
+
+Tests are written in MiniTest. To run them all just execute the following from your command line:
+
+  ``` shell
+  ruby -I. test/ts_yew.rb
+  ```
 
 ## License
 

@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name            = 'yew'
-  s.version         = '0.0.4'
+  s.version         = '0.0.5'
   s.platform        = Gem::Platform::RUBY
   s.authors         = ['Gianfranco Zas']
   s.email           = 'snmgian@gmail.com'
@@ -10,4 +10,5 @@ Gem::Specification.new do |s|
   s.license         = 'LGPL'
 
   s.files           = Dir.glob("{lib}/**/*") + %w(COPYING COPYING.LESSER README.md)
+  s.test_files      = Dir.glob("{test}/**/*")
 end
