@@ -99,3 +99,7 @@ Tests are written in MiniTest. To run them all just execute the following from y
 This software is licensed under the [LGPL][lgpl] license.
 
 [lgpl]: https://www.gnu.org/licenses/lgpl.html
+
+## Badges
+
+[![Build Status](https://travis-ci.org/snmgian/yew.svg?branch=master)](https://travis-ci.org/snmgian/yew) [![Code Climate](https://codeclimate.com/github/snmgian/yew.png)](https://codeclimate.com/github/snmgian/yew)
