@@ -70,7 +70,7 @@ class TestYew < Test::Unit::TestCase
 
     begin
       @tree.orientdb.timeout
-    rescue StandardError => e; end
+    rescue RuntimeError => e; end
 
     assert_match(/timeout not found at \/orientdb/, e.message)
   end

@@ -18,7 +18,7 @@ module Yew
     def [](*key)
       if key.any?
         key = key.first
-        Utils.fetch_as_tree(key, @env, @root)
+        Utils.fetch(key, @env, @root)
 
       else
         @env
@@ -26,7 +26,7 @@ module Yew
     end
 
     def method_missing(m, *attrs, &block)
-      Utils.fetch_as_tree(m, @env, @root)
+      Utils.fetch(m, @env, @root)
     end
 
     if $YEW_DEBUG
@@ -41,12 +41,8 @@ module Yew
   end
 
   module Utils
-    def self.fetch_as_tree(key, env, root)
-      value = env.fetch(key) do
-        env.fetch(key.to_s) do
-          raise "Attribute #{key} not found at /#{root}"
-        end
-      end
+    def self.fetch(key, env, root)
+      value = raw_fetch(key, env, root)
 
       if value.is_a?(Hash)
         path = key
@@ -55,6 +51,14 @@ module Yew
         Tree.new(value, path)
       else
         value
+      end
+    end
+
+    def self.raw_fetch(key, env, root)
+      env.fetch(key) do
+        env.fetch(key.to_s) do
+          raise "Attribute #{key} not found at /#{root}"
+        end
       end
     end
   end
