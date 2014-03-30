@@ -51,7 +51,7 @@ module Yew
     # Define methods for printing inspection.
     if $YEW_DEBUG
       def inspect
-        "<Envy::Env:#{__id__} -> #@env>"
+        "<Yew::Env:#{__id__} -> #@env>"
       end
 
       def to_s
