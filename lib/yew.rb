@@ -48,14 +48,19 @@ module Yew
       Utils.fetch(m, @env, @root)
     end
 
-    # Define methods for printing inspection.
-    if $YEW_DEBUG
-      def inspect
+    def inspect
+      if $YEW_DEBUG
         "<Yew::Env:#{__id__} -> #@env>"
+      else
+        super
       end
+    end
 
-      def to_s
+    def to_s
+      if $YEW_DEBUG
         "Env -> #@env"
+      else
+        super
       end
     end
   end
