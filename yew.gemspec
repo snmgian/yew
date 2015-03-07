@@ -9,6 +9,8 @@ Gem::Specification.new do |s|
   s.description     = 'Reads from .yml files and provides an object for key traversing.'
   s.license         = 'LGPL'
 
+  s.required_ruby_version = '>= 1.9.2'
+
   s.files           = Dir.glob("{lib}/**/*") + %w(COPYING COPYING.LESSER README.md)
   s.test_files      = Dir.glob("{test}/**/*")
 end
