@@ -5,8 +5,6 @@ Yew allows traversing a Hash structure as if it is an object tree.
 
 ## Usage
 
-There are two options for installation: packaged gem and as source file.
-
 Given the following yml file located at `config/env.yml`:
 
   ``` yaml
